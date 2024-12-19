@@ -1,44 +1,35 @@
-def calculator():
-    print("Welcome to the Python Calculator!")
-    print("Select an operation to perform:")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
+class SimpleCalculator:
+    @staticmethod
+    def add(a, b):
+        return a + b
 
-    while True:
-        # Get user input
-        choice = input("Enter the number of the operation you'd like to perform (1/2/3/4): ")
+    @staticmethod
+    def subtract(a, b):
+        return a - b
 
-        if choice in ['1', '2', '3', '4']:
-            # Get numbers from user
-            try:
-                num1 = float(input("Enter the first number: "))
-                num2 = float(input("Enter the second number: "))
-            except ValueError:
-                print("Invalid input! Please enter numeric values.")
-                continue
+    @staticmethod
+    def multiply(a, b):
+        return a * b
 
-            # Perform the selected operation
-            if choice == '1':
-                print(f"The result of addition is: {num1 + num2}")
-            elif choice == '2':
-                print(f"The result of subtraction is: {num1 - num2}")
-            elif choice == '3':
-                print(f"The result of multiplication is: {num1 * num2}")
-            elif choice == '4':
-                if num2 != 0:
-                    print(f"The result of division is: {num1 / num2}")
-                else:
-                    print("Division by zero is not allowed.")
+    @staticmethod
+    def divide(a, b):
+        if b != 0:
+            return a / b
         else:
-            print("Invalid choice! Please select a valid operation.")
+            return "Error: Division by zero"
 
-        # Check if the user wants to perform another calculation
-        next_calculation = input("Do you want to perform another calculation? (yes/no): ").strip().lower()
-        if next_calculation != 'yes':
-            print("Thank you for using the calculator. Goodbye!")
-            break
+# Define two numbers
+num1 = 10
+num2 = 5
 
-# Run the calculator
-calculator()
+# Perform calculations
+addition_result = SimpleCalculator.add(num1, num2)
+subtraction_result = SimpleCalculator.subtract(num1, num2)
+multiplication_result = SimpleCalculator.multiply(num1, num2)
+division_result = SimpleCalculator.divide(num1, num2)
+
+# Display results
+print(f"Addition: {num1} + {num2} = {addition_result}")
+print(f"Subtraction: {num1} - {num2} = {subtraction_result}")
+print(f"Multiplication: {num1} * {num2} = {multiplication_result}")
+print(f"Division: {num1} / {num2} = {division_result}")
